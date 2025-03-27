@@ -24,16 +24,17 @@ Matrix::Matrix(size_t N) {
 Matrix::Matrix(std::vector<std::vector<int>> nums) {
     std::vector<int> row;
 
-
-
     for (int i = 0; i < _N; i++){
         for (int j = 0; j < _N; j++){
             int entry = nums[i][j];
             row.push_back(entry);
         } 
         _matrix.push_back(row);
+    }   
+}
 
-    }
+void Matrix::set_value(std::size_t i, std::size_t j, int n){
+    _matrix[i][j] = n;
 }
 
 // e.g. for a member function:
