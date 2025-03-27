@@ -19,6 +19,10 @@ public:
     void swap_rows(std::size_t r1, std::size_t r2);
     void swap_cols(std::size_t c1, std::size_t c2);
     void print_matrix() const;
+
+private: 
+    std::vector<std::vector<int>> _matrix; //a vector of vectors containing ints called _matrix 
+    std::size_t _N; //int variable containing size of matrix in _n
 };
 
 #endif // __MATRIX_HPP__
