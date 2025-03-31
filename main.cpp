@@ -19,25 +19,40 @@ int main(int argc, char *argv[]) {
 
     std::string line; 
     std::vector<std::string> contents;
+    std::vector<std::vector<int>> matrix1;
+    std::vector<std::vector<int>> matrix2;
+    std::string num;
+    int counter = 0;
+    int size_n; //size of matrices
     while (std::getline(file, line)){
-        contents.push_back(line); //store each line from file in contents 
+        line.erase(std::remove(line.begin(), line.end(), '\n'), line.end()); //from google AI overview ~ shows how to get rid of trailing and leading \n characters
+        if (counter == 0){
+            size_n = std::stoi(line);
+            counter ++;
+        } else {
+            std::stringstream ss(line);
+            std::vector<int> v_num;
+            while (getline(ss, num, ' ')){ //got this from geeksforgeeks
+                v_num.push_back(std::stoi(num)); //stoi converts from string to int                
+            }
+            
+            if (counter <= size_n){
+                matrix1.push_back(v_num);
+            }
+            else{
+                matrix2.push_back(v_num);
+            }
+            
+        //contents.push_back(line); //store each line from file in contents 
+        }
     }
     file.close();
 
-    int size = std::stoi(contents[0]);
+    Matrix m1 = Matrix(matrix1);
+    Matrix m2 = Matrix(matrix2);
 
-    for (int i = 1; i < size; i++){
-         //looked at example from geeksforgeeks to figure out how to delimit the line by spaces between numbers
-        std::string nums_str = contents[i];
-        std::stringstream ss(nums_str); //constructs a stream from string nums_str
-
-    }
-    //looked at example from geeksforgeeks to figure out how to delimit the line by spaces between numbers
-    std::stringstream ss(line);
-    std::vector<int> v_num;
-    std::string num;
-    while (std::getline(ss, s, ' ')){
-        v_num.push_back(std::stoi(num)); //stoi converts from string to int 
+    m1.print_matrix();
+    m2.print_matrix();
 
 
     return 0;
