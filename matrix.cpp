@@ -21,7 +21,8 @@ Matrix::Matrix(size_t N) {
 }
 
 // constructor with paramter 
-Matrix::Matrix(std::vector<std::vector<int>> nums) {
+Matrix::Matrix(std::vector<std::vector<int> > nums) {
+    _N = nums.size();
     std::vector<int> row;
 
     for (int i = 0; i < _N; i++){

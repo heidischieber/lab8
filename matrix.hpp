@@ -7,7 +7,7 @@
 class Matrix {
 public:
     Matrix(std::size_t N);
-    Matrix(std::vector<std::vector<int>> nums);
+    Matrix(std::vector<std::vector<int> > nums);
 
     Matrix operator+(const Matrix &rhs) const;
     Matrix operator*(const Matrix &rhs) const;
@@ -21,7 +21,7 @@ public:
     void print_matrix() const;
 
 private: 
-    std::vector<std::vector<int>> _matrix; //a vector of vectors containing ints called _matrix 
+    std::vector<std::vector<int> > _matrix; //a vector of vectors containing ints called _matrix 
     std::size_t _N; //int variable containing size of matrix in _n
 };
 
