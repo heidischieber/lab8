@@ -19,8 +19,8 @@ int main(int argc, char *argv[]) {
 
     std::string line; 
     std::vector<std::string> contents;
-    std::vector<std::vector<int>> matrix1;
-    std::vector<std::vector<int>> matrix2;
+    std::vector<std::vector<int> > matrix1;
+    std::vector<std::vector<int> > matrix2;
     std::string num;
     int counter = 0;
     int size_n; //size of matrices
