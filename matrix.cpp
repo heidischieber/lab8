@@ -38,6 +38,54 @@ void Matrix::set_value(std::size_t i, std::size_t j, int n){
     _matrix[i][j] = n;
 }
 
+int Matrix::get_value(std::size_t i, std::size_t j) const{
+    return _matrix[i][j];
+}
+
+int Matrix::get_size() const{
+    return _N;
+}
+
+//matrix addition
+Matrix Matrix::operator+(const Matrix &rhs) const{
+    Matrix result(_N);
+    for (int i = 0; i < _N; i++){
+        for (int j = 0; j < _N; j++){
+            result.set_value(i, j, (get_value(i, j) + rhs.get_value(i, j)));
+        }
+    }
+    return result;
+}
+
+//matrix multiplication
+Matrix Matrix::operator*(const Matrix &rhs) const{
+    Matrix result(_N);
+    for (int i = 0; i < _N; i++){
+        for (int j = 0; j < _N; j++){
+            int result_value = 0; //result value from multiplication
+            for (int z = 0; z < _N; z++){
+                result_value = result_value + (get_value(i, z) * rhs.get_value(z, j));
+            }
+        result.set_value(i, j, result_value);
+        }
+    }
+
+}
+
+//sum diagonal major
+int Matrix::sum_diagonal_major() const{
+    int result = 0;
+    for (int i = 0; i < get_size(); i++){
+        result = result + get_value(i, i);
+    }
+    return result;
+}
+
+//sum diagonal minor
+int Matrix::sum_diagonal_minor() const{
+    int result = 0;
+    for 
+}
 
 
 // e.g. for a member function:
