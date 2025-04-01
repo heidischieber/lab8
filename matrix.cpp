@@ -61,15 +61,13 @@ Matrix Matrix::operator*(const Matrix &rhs) const{
         for (size_t j = 0; j < _N; j++){ 
             int result_value = 0; //result value from multiplication 
             for (size_t z = 0; z < _N; z++){ 
-std::cout << get_value(i, z) << " "; 
-std::cout << get_value(z, j) << "\n"; 
-result_value += get_value(i, z) * rhs.get_value(z, j); 
-} 
-                result.set_value(i, j, result_value); 
+                result_value += get_value(i, z) * rhs.get_value(z, j);  
             } 
+            result.set_value(i, j, result_value);
         } 
+    }
     return result; 
-} 
+}
 
 //sum diagonal major
 int Matrix::sum_diagonal_major() const{
@@ -80,11 +78,11 @@ int Matrix::sum_diagonal_major() const{
     return result;
 }
 
-//sum diagonal minor
+//sum diagonal minor ~ need to fix this 
 int Matrix::sum_diagonal_minor() const{
     int result = 0;
     int row = 0;
-    for (size_t i = get_size() - 1; i >= 0; i--){
+    for (int i = get_size() - 1; i >= 0; i--){
         result = result + get_value(row, i);
         row ++;
     }
