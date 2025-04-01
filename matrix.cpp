@@ -84,9 +84,22 @@ int Matrix::sum_diagonal_major() const{
 //sum diagonal minor
 int Matrix::sum_diagonal_minor() const{
     int result = 0;
-    for 
+    int row = 0;
+    for (int i = get_size() - 1; i >= 0; i--){
+        result = result + get_value(row, i);
+        row ++;
+    }
 }
 
+//swap rows 
+void Matrix::swap_rows(std::size_t r1, std::size_t r2){
+    int temp;
+    for (int i = 0; i < get_size(); i++){
+        temp = get_value(r1, i);
+        set_value(r1, i, get_value(r2, i));
+        set_value(r2, i, temp);
+    }
+}
 
 // e.g. for a member function:
 
