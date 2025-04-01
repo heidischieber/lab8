@@ -114,9 +114,9 @@ void Matrix::swap_cols(std::size_t c1, std::size_t c2){
 void Matrix::print_matrix() const {
     // print out the matrix
     for (size_t i = 0; i < _N; i++){
-        for (size_t j = 0; j < _N; i++){
-            std::cout << _matrix[i][j] << std::endl;
+        for (size_t j = 0; j < _N; j++){
+            std::cout << _matrix[i][j] << " ";
         }
-        std::cout << "\n" << std::endl;
+        std::cout << "\n";
     }
 }

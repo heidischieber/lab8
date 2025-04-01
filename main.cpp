@@ -56,6 +56,7 @@ int main(int argc, char *argv[]) {
     Matrix m2 = Matrix(matrix2);
 
     m1.print_matrix();
+    std::cout << "\n";
     m2.print_matrix();
 
 
