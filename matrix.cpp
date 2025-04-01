@@ -10,23 +10,20 @@
 
 Matrix::Matrix(size_t N) {
     // initialize an empty NxN matrix
-    std::vector<int> empty_row; //creates a vector of integers called empty_row
-
-    for (int i = 0; i < N; i++){ //for loop iterates from 0 to N
-        empty_row.push_back(0); //adds a 0 to empty_row
-    }
-    for (int j =0; j < N; j++){ //for loops iterates from 0 to N
-        _matrix.push_back(empty_row); //
+    _N = N;
+    for (size_t i = 0; i < N; i++){ //for loop iterates from 0 to N
+        std::vector<int> empty_row(N, 0); //got empty_row(N, 0) from chatGPT ~ was having issues of copying same empty_row over and over again resulting in infinite zeros
+        _matrix.push_back(empty_row);
     }
 }
 
 // constructor with paramter 
 Matrix::Matrix(std::vector<std::vector<int> > nums) {
     _N = nums.size();
-    std::vector<int> row;
 
-    for (int i = 0; i < _N; i++){
-        for (int j = 0; j < _N; j++){
+    for (size_t i = 0; i < _N; i++){
+        std::vector<int> row;
+        for (size_t j = 0; j < _N; j++){
             int entry = nums[i][j];
             row.push_back(entry);
         } 
@@ -49,8 +46,8 @@ int Matrix::get_size() const{
 //matrix addition
 Matrix Matrix::operator+(const Matrix &rhs) const{
     Matrix result(_N);
-    for (int i = 0; i < _N; i++){
-        for (int j = 0; j < _N; j++){
+    for (size_t i = 0; i < _N; i++){
+        for (size_t j = 0; j < _N; j++){
             result.set_value(i, j, (get_value(i, j) + rhs.get_value(i, j)));
         }
     }
@@ -60,8 +57,8 @@ Matrix Matrix::operator+(const Matrix &rhs) const{
 //matrix multiplication
 Matrix Matrix::operator*(const Matrix &rhs) const{
     Matrix result(_N);
-    for (int i = 0; i < _N; i++){
-        for (int j = 0; j < _N; j++){
+    for (size_t i = 0; i < _N; i++){
+        for (size_t j = 0; j < _N; j++){
             int result_value = 0; //result value from multiplication
             for (int z = 0; z < _N; z++){
                 result_value = result_value + (get_value(i, z) * rhs.get_value(z, j));
@@ -75,7 +72,7 @@ Matrix Matrix::operator*(const Matrix &rhs) const{
 //sum diagonal major
 int Matrix::sum_diagonal_major() const{
     int result = 0;
-    for (int i = 0; i < get_size(); i++){
+    for (size_t i = 0; i < get_size(); i++){
         result = result + get_value(i, i);
     }
     return result;
@@ -85,7 +82,7 @@ int Matrix::sum_diagonal_major() const{
 int Matrix::sum_diagonal_minor() const{
     int result = 0;
     int row = 0;
-    for (int i = get_size() - 1; i >= 0; i--){
+    for (size_t i = get_size() - 1; i >= 0; i--){
         result = result + get_value(row, i);
         row ++;
     }
@@ -95,7 +92,7 @@ int Matrix::sum_diagonal_minor() const{
 //swap rows 
 void Matrix::swap_rows(std::size_t r1, std::size_t r2){
     int temp;
-    for (int i = 0; i < get_size(); i++){
+    for (size_t i = 0; i < get_size(); i++){
         temp = get_value(r1, i);
         set_value(r1, i, get_value(r2, i));
         set_value(r2, i, temp);
@@ -105,7 +102,7 @@ void Matrix::swap_rows(std::size_t r1, std::size_t r2){
 //swap columns
 void Matrix::swap_cols(std::size_t c1, std::size_t c2){
     int temp; 
-    for (int i = 0; i < get_size(); i++){
+    for (size_t i = 0; i < get_size(); i++){
         temp = get_value(i, c1);
         set_value(i, c1, get_value(c2, i));
         set_value(i, c2, temp);
@@ -116,9 +113,9 @@ void Matrix::swap_cols(std::size_t c1, std::size_t c2){
 
 void Matrix::print_matrix() const {
     // print out the matrix
-    for (int i = 0; i < _N; i++){
-        for (int j = 0; j < _N; i++){
-            std::cout << j << std::endl;
+    for (size_t i = 0; i < _N; i++){
+        for (size_t j = 0; j < _N; i++){
+            std::cout << _matrix[i][j] << std::endl;
         }
         std::cout << "\n" << std::endl;
     }

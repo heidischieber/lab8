@@ -22,8 +22,8 @@ int main(int argc, char *argv[]) {
     std::vector<std::vector<int> > matrix1;
     std::vector<std::vector<int> > matrix2;
     std::string num;
-    int counter = 0;
-    int size_n; //size of matrices
+    std::size_t counter = 0;
+    std::size_t size_n; //size of matrices
     while (std::getline(file, line)){
         line.erase(std::remove(line.begin(), line.end(), '\n'), line.end()); //from google AI overview ~ shows how to get rid of trailing and leading \n characters
         if (counter == 0){
@@ -34,8 +34,11 @@ int main(int argc, char *argv[]) {
             std::vector<int> v_num;
             while (getline(ss, num, ' ')){ //got this from geeksforgeeks
                 v_num.push_back(std::stoi(num)); //stoi converts from string to int                
+                /*for (int i = 0; i < v_num.size(); i++){
+                    std::cout << v_num[i] << std::endl;
+                }
+                std::cout << " " <<std::endl;*/
             }
-            
             if (counter <= size_n){
                 matrix1.push_back(v_num);
             }
