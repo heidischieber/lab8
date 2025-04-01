@@ -89,6 +89,7 @@ int Matrix::sum_diagonal_minor() const{
         result = result + get_value(row, i);
         row ++;
     }
+    return result;
 }
 
 //swap rows 
