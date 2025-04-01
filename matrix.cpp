@@ -69,7 +69,7 @@ Matrix Matrix::operator*(const Matrix &rhs) const{
         result.set_value(i, j, result_value);
         }
     }
-
+    return result;
 }
 
 //sum diagonal major
