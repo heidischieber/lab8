@@ -101,6 +101,16 @@ void Matrix::swap_rows(std::size_t r1, std::size_t r2){
     }
 }
 
+//swap columns
+void Matrix::swap_cols(std::size_t c1, std::size_t c2){
+    int temp; 
+    for (int i = 0; i < get_size(); i++){
+        temp = get_value(i, c1);
+        set_value(i, c1, get_value(c2, i));
+        set_value(i, c2, temp);
+    }
+}
+
 // e.g. for a member function:
 
 void Matrix::print_matrix() const {
