@@ -55,19 +55,21 @@ Matrix Matrix::operator+(const Matrix &rhs) const{
 }
 
 //matrix multiplication
-Matrix Matrix::operator*(const Matrix &rhs) const{
-    Matrix result(_N);
-    for (size_t i = 0; i < _N; i++){
-        for (size_t j = 0; j < _N; j++){
-            int result_value = 0; //result value from multiplication
-            for (int z = 0; z < _N; z++){
-                result_value = result_value + (get_value(i, z) * rhs.get_value(z, j));
-            }
-        result.set_value(i, j, result_value);
-        }
-    }
-    return result;
-}
+Matrix Matrix::operator*(const Matrix &rhs) const{ 
+    Matrix result(_N); 
+    for (size_t i = 0; i < _N; i++){ 
+        for (size_t j = 0; j < _N; j++){ 
+            int result_value = 0; //result value from multiplication 
+            for (size_t z = 0; z < _N; z++){ 
+std::cout << get_value(i, z) << " "; 
+std::cout << get_value(z, j) << "\n"; 
+result_value += get_value(i, z) * rhs.get_value(z, j); 
+} 
+                result.set_value(i, j, result_value); 
+            } 
+        } 
+    return result; 
+} 
 
 //sum diagonal major
 int Matrix::sum_diagonal_major() const{

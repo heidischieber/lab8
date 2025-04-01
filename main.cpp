@@ -55,9 +55,35 @@ int main(int argc, char *argv[]) {
     Matrix m1 = Matrix(matrix1);
     Matrix m2 = Matrix(matrix2);
 
+    std::cout<< "Matrix 1:" << std::endl;
     m1.print_matrix();
     std::cout << "\n";
+
+    std::cout<< "Matrix 2:" << std::endl;
     m2.print_matrix();
+    std::cout << "\n";
+
+    std::cout<< "Matrix 1 + Matrix 2 =" << std::endl;
+    Matrix m1PLUSm2 = m1.operator+(m2);
+    m1PLUSm2.print_matrix();
+    std::cout << "\n";
+
+    std::cout<< "Matrix 1 * Matrix 2 =" << std::endl;
+    Matrix m1TIMESm2 = m1.operator*(m2);
+    m1TIMESm2.print_matrix();
+    std::cout << "\n";
+
+    std::cout << "Matrix 1 sum of diagonal major elements: " << std::endl;
+    std::cout << m1.sum_diagonal_major() << std::endl;
+    std::cout << "Matrix 1 sum of diagonal minor elements: " << std::endl;
+    std::cout << m1.sum_diagonal_minor() << std::endl;
+    std::cout << "\n";
+
+    std::cout << "Matrix 2 sum of diagonal major elements: " << std::endl;
+    std::cout << m2.sum_diagonal_major() << std::endl;
+    std::cout << "Matrix 2 sum of diagonal minor elements: " << std::endl;
+    std::cout << m2.sum_diagonal_minor() << std::endl;
+    std::cout << "\n";
 
 
     return 0;
