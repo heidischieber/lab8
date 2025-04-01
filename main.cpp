@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
         line.erase(std::remove(line.begin(), line.end(), '\n'), line.end()); //from google AI overview ~ shows how to get rid of trailing and leading \n characters
         if (counter == 0){
             size_n = std::stoi(line);
-            counter ++;
+            counter++;
         } else {
             std::stringstream ss(line);
             std::vector<int> v_num;
@@ -42,6 +42,7 @@ int main(int argc, char *argv[]) {
             else{
                 matrix2.push_back(v_num);
             }
+            counter++;
             
         //contents.push_back(line); //store each line from file in contents 
         }
