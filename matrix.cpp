@@ -78,7 +78,7 @@ int Matrix::sum_diagonal_major() const{
     return result;
 }
 
-//sum diagonal minor ~ need to fix this 
+//sum diagonal minor  
 int Matrix::sum_diagonal_minor() const{
     int result = 0;
     int row = 0;
@@ -91,21 +91,25 @@ int Matrix::sum_diagonal_minor() const{
 
 //swap rows 
 void Matrix::swap_rows(std::size_t r1, std::size_t r2){
-    int temp;
-    for (size_t i = 0; i < get_size(); i++){
-        temp = get_value(r1, i);
-        set_value(r1, i, get_value(r2, i));
-        set_value(r2, i, temp);
+    if (r1 >= 0 & r1 < get_size() & r2 >= 0 & r2 < get_size()){
+        int temp;
+        for (size_t i = 0; i < get_size(); i++){
+            temp = get_value(r1, i);
+            set_value(r1, i, get_value(r2, i));
+            set_value(r2, i, temp);
+        }
     }
 }
 
 //swap columns
 void Matrix::swap_cols(std::size_t c1, std::size_t c2){
-    int temp; 
-    for (size_t i = 0; i < get_size(); i++){
-        temp = get_value(i, c1);
-        set_value(i, c1, get_value(c2, i));
-        set_value(i, c2, temp);
+    if (c1 >= 0 & c1 < get_size()-1 & c2 >= 0 & c2 < get_size()-1){
+        int temp; 
+        for (size_t i = 0; i < get_size(); i++){
+            temp = get_value(i, c1);
+            set_value(i, c1, get_value(i, c2));
+            set_value(i, c2, temp);
+        }
     }
 }
 
