@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
     std::cin >> m_to_swap; //stores user input in row2
     
     if (m_to_swap == 1){ //True if swap rows in m1
-        if (row1 >= 0 & row1 < m1.get_size()-1 & row2 >= 0 & row2 < m1.get_size()-1){ //checks if valid inputs
+        if (row1 >= 0 & row1 < m1.get_size() & row2 >= 0 & row2 < m1.get_size()){ //checks if valid inputs
             m1.swap_rows(row1, row2); //swaps row1 with row2 in m1
             std::cout << "Matrix 1 with row" << row1 << " swapped with row" << row2 << " : " << std::endl; //displays what's happening
             m1.print_matrix(); //displays m1 now with swapped rows
@@ -113,7 +113,7 @@ int main(int argc, char *argv[]) {
             std::cout << "Index out of range." << std::endl; //displays indexing error
         }
     } else { //the following runs if swap rows in m2
-        if (row1 >= 0 & row1 < m1.get_size()-1 & row2 >= 0 & row2 < m1.get_size()-1){ //checks if valid inputs
+        if (row1 >= 0 & row1 < m1.get_size() & row2 >= 0 & row2 < m1.get_size()){ //checks if valid inputs
             m2.swap_rows(row1, row2); //swaps row1 with row2 in m2
             std::cout << "Matrix 2 with row" << row1 << " swapped with row" << row2 << " : " << std::endl; //displays what's happening
             m2.print_matrix(); //displays m2 now with swapped rows
@@ -137,7 +137,7 @@ int main(int argc, char *argv[]) {
     std::cout << "\n"; //new line 
 
     if (c_to_swap == 1){ //True if swap cols in m1
-        if (col1 >= 0 & col1 < m1.get_size()-1 & col2 >= 0 & col2 < m1.get_size()-1){ //checks if valid inputs
+        if (col1 >= 0 & col1 < m1.get_size() & col2 >= 0 & col2 < m1.get_size()){ //checks if valid inputs
             m1.swap_cols(col1, col2); //swaps col1 with col2 in m1
             std::cout << "Matrix 1 with row" << col1 << " swapped with row" << col2 << " : " << std::endl; //description of what's happening
             m1.print_matrix(); //displays m1 now with swapped cols
@@ -145,7 +145,7 @@ int main(int argc, char *argv[]) {
             std::cout << "Index out of range." << std::endl; //displays indexing error
         }
     } else {
-        if (col1 >= 0 & col1 < m1.get_size()-1 & col2 >= 0 & col2 < m1.get_size()-1){ //checks if valid inputs 
+        if (col1 >= 0 & col1 < m1.get_size() & col2 >= 0 & col2 < m1.get_size()){ //checks if valid inputs 
             m2.swap_cols(col1, col2); //swaps col1 with col2 in m2
             std::cout << "Matrix 2 with row" << col1 << " swapped with row" << col2 << " : " << std::endl; //description of what's happening
             m2.print_matrix(); //displays m2 now with swapped cols
@@ -173,7 +173,7 @@ int main(int argc, char *argv[]) {
     std::cout << "\n"; //new line
 
     if (m == 1){ //True if set value in m1
-        if (row >= 0 & row < m1.get_size()-1 & col >= 0 & col < m1.get_size()-1){ //error checking
+        if (row >= 0 & row < m1.get_size() & col >= 0 & col < m1.get_size()){ //error checking
             m1.set_value(row, col, val); //sets m1[row][col] = val
             std::cout << "New Matrix: " << std::endl; //description of what's happening
             m1.print_matrix(); //displays m1 with new value
@@ -181,7 +181,7 @@ int main(int argc, char *argv[]) {
             std::cout << "Index out of range." << std::endl; //displays error
         }
     } else {
-        if (row >= 0 & row < m1.get_size()-1 & col >= 0 & col < m1.get_size()-1){ //error checking 
+        if (row >= 0 & row < m1.get_size() & col >= 0 & col < m1.get_size()){ //error checking 
             m2.set_value(row, col, val); //sets m2[row][col] = val
             std::cout << "New Matrix: " << std::endl; //description of what's happening
             m2.print_matrix(); //displays m2 with new value 
