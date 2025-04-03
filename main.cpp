@@ -1,5 +1,4 @@
 #include "matrix.hpp" //includes matrix.hpp file
-#include "matrix.cpp" //includes matrix.cpp file
 #include <fstream> //allows access to all components of header fstream
 #include <iostream> //allows acces to all components of header iostream
 #include <string> //allows access to all components of header string
